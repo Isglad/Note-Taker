@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 const fs = require("fs");
 
-const uuid = require('./helpers/uuid')
+const uuid = require("./helpers/uuid");
 
 const PORT = 3001;
 
@@ -49,18 +49,18 @@ app.post("/api/notes", (req, res) => {
     fs.readFile("./db/db.json", "utf8", (err, data) => {
       if (err) {
         console.error(err);
-        // return res.status(500).json('Error in posting review');
+        return res.status(500).json("Error in posting review");
       } else {
         // Convert string into JSON object
-        const parsedReviews = JSON.parse(data);
+        const parsedNotes = JSON.parse(data);
 
         // Add a new note
-        parsedReviews.push(newNote);
+        parsedNotes.push(newNote);
 
         // Write updated notes back to the file
         fs.writeFile(
           "./db/db.json",
-          JSON.stringify(parsedReviews, null, 4),
+          JSON.stringify(parsedNotes, null, 4),
           (writeErr) =>
             writeErr
               ? console.error(writeErr)
@@ -79,6 +79,44 @@ app.post("/api/notes", (req, res) => {
   } else {
     res.status(500).json("Error in posting review");
   }
+});
+
+// DELETE request to delete a note
+app.delete("api/notes/:id", (req, res) => {
+  // Destructuring req.params.id to use 'id' as a variable
+  const { id } = req.params;
+  console.log(id);
+
+  // log that a DELETE request was received
+  console.info(
+    `${req.method} request received to delete a note with id: ${id}`
+  );
+
+  // Read the current notes from the db.json file
+  fs.readFile("./db/db.json", "utf8", (err, data) => {
+    if (err) {
+      console.err(err);
+      return res.status(500).json("Error in deleting note");
+    } else {
+      // Convert the string data into JSON object
+      //   const parsedNotes = JSON.parse(data);
+      let notes = JSON.parse(data);
+      console.log(notes);
+
+      //   Filter out the note with the specified id
+      notes = notes.filter((data) => data.id != id);
+      console.log(notes);
+
+      // Write updated notes back to the file
+      fs.writeFile("./db/db.json", JSON.stringify(notes, null, 4), (writeErr) =>
+        writeErr
+          ? console.error(writeErr)
+          : console.info("Successfully deleted note!")
+      );
+      // Return success status to the client
+      res.status(200).json("Note successfully deleted");
+    }
+  });
 });
 
 app.listen(PORT, () => {
