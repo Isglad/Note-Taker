@@ -82,7 +82,7 @@ app.post("/api/notes", (req, res) => {
 });
 
 // DELETE request to delete a note
-app.delete("api/notes/:id", (req, res) => {
+app.delete("/api/notes/:id", (req, res) => {
   // Destructuring req.params.id to use 'id' as a variable
   const { id } = req.params;
   console.log(id);
