@@ -2,6 +2,8 @@ const express = require("express");
 const path = require("path");
 const fs = require("fs");
 
+const uuid = require('./helpers/uuid')
+
 const PORT = 3001;
 
 const app = express();
@@ -40,6 +42,7 @@ app.post("/api/notes", (req, res) => {
     const newNote = {
       title,
       text,
+      id: uuid(),
     };
 
     // Obtain existing notes
