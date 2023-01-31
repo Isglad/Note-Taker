@@ -3,17 +3,21 @@
 ## Technology Used
 
 | Technology Used         | Resource URL           | 
-| ------------- |:-------------:|    
+| ------------- |:-------------:| 
+| HTML    | [https://developer.mozilla.org/en-US/docs/Web/HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) | 
+| CSS     | [https://developer.mozilla.org/en-US/docs/Web/CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)      |    
 | Git | [https://git-scm.com/](https://git-scm.com/)     |   
 | JavaScript   | [https://developer.mozilla.org/en-US/docs/Learn/JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript)      |
-| Node.js  | [https://nodejs.org/docs/latest-v16.x/api/synopsis.html](https://nodejs.org/docs/latest-v16.x/api/synopsis.html)
+| Node.js  | [https://nodejs.org/docs/latest-v16.x/api/synopsis.html](https://nodejs.org/docs/latest-v16.x/api/synopsis.html)  |
+| Express.js   | [http://expressjs.com/](http://expressjs.com/)  |
+| Heroku    |   [https://devcenter.heroku.com/articles/getting-started-with-nodejs?singlepage=true](https://devcenter.heroku.com/articles/getting-started-with-nodejs?singlepage=true)   |
 
 
 ## Description
 
 Welcome to the Note Taker app. This application allows you to write and save notes so that you can organize your thoughts and keep track of tasks you need to complete.
 
-[Link to the deployed app]()
+[Link to the deployed app](https://still-reaches-35459.herokuapp.com/)
 
 ## Table of Contents
 
